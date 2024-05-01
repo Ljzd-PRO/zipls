@@ -1,5 +1,7 @@
 from datetime import datetime
+from glob import glob
 from pathlib import Path
+from typing import Generator, Any
 from zipfile import ZipFile
 
 from zipls.model import ZipLsInfo, FileInfo
@@ -21,3 +23,8 @@ def dump_zipls_info(path: Path) -> ZipLsInfo:
             )
         )
     return zipls_info
+
+
+def glob_to_path(*paths: str) -> Generator[Path, Any, None]:
+    for path in paths:
+        yield from map(Path, glob(path))

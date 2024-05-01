@@ -5,7 +5,7 @@ from loguru import logger
 
 from zipls import __version__
 from zipls.model import ZipLsInfo, ZipLsDump, settings
-from zipls.utils import dump_zipls_info
+from zipls.utils import dump_zipls_info, glob_to_path
 
 
 class ZipLsCli:
@@ -26,7 +26,7 @@ class ZipLsCli:
     @classmethod
     def dump(cls, path: str = None, *zip_files: str):
         """Dump ZipLsInfo data to file"""
-        zip_paths = map(Path, zip_files)
+        zip_paths = glob_to_path(*zip_files)
         zipls_dump = ZipLsDump()
         for file in zip_paths:
             try:
