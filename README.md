@@ -4,6 +4,8 @@ A practical tool that lists all the files in a compressed archive and saves this
 
 ## Installation
 
+You can **use executable files from [release page](https://github.com/Ljzd-PRO/zipls/releases/)** or follow steps below. 
+
 1. (Optional)Prepare a python virtual environment.
 2. Install requirements (`requirements.txt`).
     - `pip install requirements.txt`
