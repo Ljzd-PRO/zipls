@@ -34,7 +34,7 @@ class ZipLsCli:
                 if settings.debug:
                     logger.exception("Error dumping ZipFileInfo")
                 else:
-                    logger.error(e)
+                    logger.error(repr(e))
                 return None
         zipls_dump_str = zipls_dump.model_dump_json(indent=4)
         if path:
