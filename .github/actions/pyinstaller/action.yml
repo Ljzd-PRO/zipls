@@ -1,0 +1,28 @@
+name: Package using PyInstaller
+description: Bundles a Python application and all its dependencies into a single package.
+
+inputs:
+  spec-path:
+    description: Path of Spec file
+    required: false
+    default: "zipls.spec"
+
+  dist-path:
+    description: Path of Spec file
+    required: false
+    default: "dist"
+
+runs:
+  using: "composite"
+  steps:
+    - name: Install Pyinstaller
+      run: pip install pyinstaller
+      shell: bash
+
+    - name: Create Executable
+      run: pyinstaller ${{ inputs.spec-path }} --distpath ${{ inputs.dist-path }}
+      shell: bash
+
+    - name: Copy Extra Files
+      run: cp README.md LICENSE dist
+      shell: bash

@@ -1,0 +1,59 @@
+name: Python Package
+
+on:
+  workflow_dispatch:
+  workflow_call:
+  push:
+  pull_request:
+
+jobs:
+#  build-wheels:
+#    runs-on: ubuntu-latest
+#
+#    steps:
+#      - uses: actions/checkout@v4
+#
+#      - name: Setup Python environment
+#        uses: actions/setup-python@v5
+#        with:
+#          python-version: "3.11"
+#          cache: 'pip'
+#
+#      - name: Install Requirements
+#        run: pip install -r requirements.txt
+#
+#      - name: Build package with Poetry
+#        run: poetry build
+#
+#      - name: Upload Wheels
+#        uses: actions/upload-artifact@v4
+#        with:
+#          name: ktoolbox-wheels
+#          path: dist
+
+  create-executable:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ windows-latest, ubuntu-latest, macos-latest ]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python environment
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: 'pip'
+
+      - name: Install Requirements
+        run: pip install -r requirements.txt
+
+      - name: Create Executable
+        uses: ./.github/actions/pyinstaller
+
+      - name: Upload Executable
+        uses: actions/upload-artifact@v4
+        with:
+          name: zipls-${{ runner.os }}-amd64
+          path: dist
