@@ -13,7 +13,7 @@ inputs:
     default: "zipls-debug.spec"
 
   dist-path:
-    description: Path of Spec file
+    description: Path dist directory
     required: false
     default: "dist"
 
