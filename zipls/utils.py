@@ -13,7 +13,7 @@ from zipls.model import ZipLsInfo, FileInfo
 
 def dump_zipls_info(path: Path) -> ZipLsInfo:
     """
-    Dump ``ZipLsInfo`` data.
+    Dump :class:`ZipLsInfo` data.
     :param path: Zip file path.
     :raise UnsupportedFile
     """
