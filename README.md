@@ -1,6 +1,6 @@
 # ZipLs
 
-A practical tool that lists all the files in a compressed archive and saves this information to a JSON file.
+A practical tool that lists all the files in a compressed archive (zip, rar, 7zip) and saves this information to a JSON file.
 
 ## Installation
 
