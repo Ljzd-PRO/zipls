@@ -24,7 +24,7 @@ class ZipLsCli:
 
     @classmethod
     def dump(cls, path: str = None, *zip_files: str):
-        """Dump ZipLsInfo data to file"""
+        """Dump files information to a file"""
         zip_paths = glob_to_path(*zip_files)
         zipls_dump = ZipLsDump()
         for file in zip_paths:
@@ -49,5 +49,5 @@ class ZipLsCli:
 
     @classmethod
     def ls(cls, *zip_files: str):
-        """Print ZipLsInfo data of zip files"""
+        """Print files information from zip files"""
         return cls.dump(None, *zip_files)
