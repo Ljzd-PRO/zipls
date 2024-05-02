@@ -12,7 +12,7 @@ A practical tool that lists all the files in a compressed archive and saves this
 
 ## Usage
 
-### Print files information from zip files
+### 📌 Print files information from zip files
 
 ```shell
 zipls ls [Zip File]...
@@ -25,7 +25,7 @@ zipls ls data.zip data1.zip data2.zip
 zipls ls *.zip
 ```
 
-### Dump files information to a file
+### 📌 Dump files information to a file
 
 ```shell
 zipls dump [Output File] [Zip File]...
@@ -38,7 +38,7 @@ zipls dump info.json data.zip data1.zip data2.zip
 zipls dump info.json *.zip
 ```
 
-### Dump JSON Schema of `ZipLsInfo`
+### 📌 Dump JSON Schema of `ZipLsInfo`
 
 > JSON Schema enables the confident and reliable use of the JSON data format. \
 > https://json-schema.org/
@@ -52,7 +52,7 @@ Example:
 zipls schema ./schema.json
 ```
 
-### Get All Usage
+### 📌 Get All Usage
 
 ```shell
 zipls --help
@@ -68,7 +68,7 @@ zipls -h
 zipls ls -h
 ```
 
-### ZipLs version
+### 📌 ZipLs version
 
 ```shell
 zipls version
