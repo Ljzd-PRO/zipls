@@ -28,6 +28,9 @@ class ZipLsCli:
         zip_paths = glob_to_path(*zip_files)
         zipls_dump = ZipLsDump()
         for file in zip_paths:
+            if not file.is_file():
+                logger.error(f"{file} is not a file")
+                return None
             try:
                 zipls_dump.root[file] = dump_zipls_info(file)
             except Exception as e:
@@ -36,6 +39,8 @@ class ZipLsCli:
                 else:
                     logger.error(repr(e))
                 return None
+        if not zipls_dump.root:
+            logger.warning("No file selected")
         zipls_dump_str = zipls_dump.model_dump_json(indent=4)
         if path:
             with open(path, "w", encoding="utf-8") as f:
