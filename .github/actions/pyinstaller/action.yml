@@ -7,6 +7,11 @@ inputs:
     required: false
     default: "zipls.spec"
 
+  debug-spec-path:
+    description: Path of Spec file for debug
+    required: false
+    default: "zipls-debug.spec"
+
   dist-path:
     description: Path of Spec file
     required: false
@@ -20,7 +25,9 @@ runs:
       shell: bash
 
     - name: Create Executable
-      run: pyinstaller ${{ inputs.spec-path }} --distpath ${{ inputs.dist-path }}
+      run: |
+        pyinstaller ${{ inputs.spec-path }} --distpath ${{ inputs.dist-path }}
+        pyinstaller ${{ inputs.debug-spec-path }} --distpath ${{ inputs.dist-path }}
       shell: bash
 
     - name: Copy Extra Files
